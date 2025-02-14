@@ -1,1 +1,1 @@
-import db from "@/components/dbConnection.js";
+import db from "@/utils/dbConnection.js";
