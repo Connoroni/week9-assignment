@@ -8,17 +8,25 @@ export default async function CreateProfile() {
   const emailJson = JSON.stringify(clerkUser.emailAddresses[0].emailAddress);
   const idJson = JSON.stringify(clerkUser.id);
   console.log("JSON data test:", emailJson, idJson);
+  const picJson = JSON.stringify(clerkUser.imageUrl);
   // Big credit to Cameron for helping me fix this, I was getting errors saying the values of id and emailAddresses[0].emailAddress were undefined because I was stringifying the whole object. Cameron's solution was to stringify only the bits I needed since there are data types like boolean (and maybe the emailAddresses array) in the object that don't work when stringified.
 
   async function handleSubmit(formValues) {
     "use server";
+
+    // let pfp = picJson;
+
+    // if (formValues.get("profile_pic") !== null) {
+    //   pfp = formValues.get("profile_pic");
+    // }
+
     const formData = {
       clerk_id: idJson,
       username: formValues.get("username"),
       first_name: formValues.get("first_name"),
       last_name: formValues.get("last_name"),
       email: emailJson,
-      profile_pic: formValues.get("profile_pic"),
+      profile_pic: pfp,
       location: formValues.get("location"),
       bio: formValues.get("bio"),
     };
