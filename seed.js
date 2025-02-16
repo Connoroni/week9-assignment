@@ -22,4 +22,15 @@
 //     post_img TEXT
 //   );
 
-//! I won't be able to insert dummy data until I have at least one account created with Clerk so I can get the id
+// Didn't insert any dummy data because I had to wait until the Clerk account creation was set up (to get user ids) and then I forgot to do it but I made the create-post page before the posts page anyway so it didn't cause any problems
+
+//! Selecting data for the feed
+// SELECT users.username, users.profile_pic, posts.id, posts.user_id, posts.timestamp, posts.post_title, posts.post_img
+// FROM users
+// JOIN posts ON posts.user_id = users.clerk_id
+
+//! Adding alt_text column to posts table
+// ALTER TABLE posts
+// ADD post_alt VARCHAR(255);
+
+// I had to add alt text manually in the table editor to the posts I'd already created, please forgive me
