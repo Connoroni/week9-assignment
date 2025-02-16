@@ -2,6 +2,7 @@ import { db } from "@/utils/dbConnection.js";
 import Image from "next/image";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 export default async function UserProfile({ params }) {
   const usernameParams = await params;
@@ -12,6 +13,10 @@ export default async function UserProfile({ params }) {
     ])
   ).rows;
   console.log("USER_DATA:", userData);
+
+  if (userData.length === 0) {
+    notFound();
+  }
 
   async function handleSubmit(formValues) {
     "use server";
