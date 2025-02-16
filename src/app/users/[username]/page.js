@@ -1,4 +1,5 @@
 import { db } from "@/utils/dbConnection.js";
+import Image from "next/image";
 
 export default async function UserProfile({ params }) {
   const usernameParams = await params;
@@ -12,12 +13,33 @@ export default async function UserProfile({ params }) {
 
   return (
     <>
-      <section className="profile"></section>
+      {userData.map((user) => (
+        <section key={user.id} className="profile">
+          <div className="profile-left">
+            <Image
+              src={user.profile_pic}
+              alt="Your profile picture, isn't it beautiful?"
+              width={200}
+              height={200}
+            />
+          </div>
+          <div className="profile-right">
+            <h1>{user.username}</h1>
+            <p>
+              {user.first_name} {user.last_name} {user.location}
+            </p>
+            <div className="bio-div">
+              <p>{user.bio}</p>
+            </div>
+          </div>
+        </section>
+      ))}
+
       <section className="edit-profile">
         <h2>Edit profile</h2>
-        <p></p>
+        <p>Fields marked with a (*) are required.</p>
         <form>
-          <div>
+          <div className="flex flex-col flex-wrap">
             <label htmlFor="username">Username*</label>
             <input
               type="text"
@@ -62,7 +84,7 @@ export default async function UserProfile({ params }) {
               placeholder="Type your bio here..."
               defaultValue={userData.bio}
             />
-            <button type="submit">Create profile</button>
+            <button type="submit">Apply changes</button>
           </div>
         </form>
       </section>
