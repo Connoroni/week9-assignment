@@ -5,7 +5,7 @@ import Link from "next/link";
 export default async function PostFeed({ searchParams }) {
   const posts = (
     await db.query(
-      `SELECT users.username, users.profile_pic, posts.id, posts.user_id, posts.timestamp, posts.post_title, posts.post_img
+      `SELECT users.username, users.profile_pic, posts.id, posts.user_id, posts.timestamp, posts.post_title, posts.post_img, posts.post_alt
       FROM users
       JOIN posts ON posts.user_id = users.clerk_id`
     )
@@ -41,7 +41,12 @@ export default async function PostFeed({ searchParams }) {
             </p>
           </div>
           <h2 className="post-title">{post.post_title}</h2>
-          <Image src={post.post_img} alt="" />
+          <Image
+            src={post.post_img}
+            alt={post.post_alt}
+            width={200}
+            height={200}
+          />
         </div>
       ))}
     </section>

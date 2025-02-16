@@ -28,3 +28,9 @@
 // SELECT users.username, users.profile_pic, posts.id, posts.user_id, posts.timestamp, posts.post_title, posts.post_img
 // FROM users
 // JOIN posts ON posts.user_id = users.clerk_id
+
+//! Adding alt_text column to posts table
+// ALTER TABLE posts
+// ADD post_alt VARCHAR(255);
+
+// I had to add alt text manually in the table editor to the posts I'd already created, please forgive me

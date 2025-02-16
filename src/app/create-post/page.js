@@ -49,6 +49,14 @@ export default async function CreatePost() {
           placeholder="Enter the URL of the image you want to post"
           required
         />
+        <label htmlFor="post_alt">Alt Text</label>
+        <input
+          type="text"
+          name="post_alt"
+          id="post_alt"
+          placeholder="Enter appropriate alt text for your image"
+          required
+        />
         <button type="submit">Create Post</button>
       </form>
     </>
