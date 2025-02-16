@@ -1,10 +1,10 @@
 import { SignUp, SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 
-export default function SignInPage() {
+export default function SignUpPage() {
   return (
     <>
-      <h1>Sign In</h1>
+      <h1>Sign Up</h1>
       <SignedOut>
         <p className="text-lg">
           Welcome to TUSS, The Untitled Social Site! We&apos;re glad to have you
