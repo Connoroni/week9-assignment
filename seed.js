@@ -22,4 +22,9 @@
 //     post_img TEXT
 //   );
 
-//! I won't be able to insert dummy data until I have at least one account created with Clerk so I can get the id
+// Didn't insert any dummy data because I had to wait until the Clerk account creation was set up (to get user ids) and then I forgot to do it but I made the create-post page before the posts page anyway so it didn't cause any problems
+
+//! Selecting data for the feed
+// SELECT users.username, users.profile_pic, posts.id, posts.user_id, posts.timestamp, posts.post_title, posts.post_img
+// FROM users
+// JOIN posts ON posts.user_id = users.clerk_id
