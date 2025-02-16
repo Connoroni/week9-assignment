@@ -5,6 +5,7 @@ import { db } from "@/utils/dbConnection";
 
 export default async function Home() {
   let usernameQuery;
+  //This was my inelegant solution to an error I was getting with the fancy SignedIn and SignedOut clerk componenenets. At first clerkUser was undefined so I added the data wrangling and query to an if conditional. Then query[0] was undefined if the user wasn't signed in (even though that element only renders when signed in I guess the code still runs and throws an error) so I used a ternary operator and a new empty variable to add the result of
 
   const clerkUser = await currentUser();
   // console.log("User object:", clerkUser);
