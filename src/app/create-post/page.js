@@ -17,12 +17,18 @@ export default async function CreatePost() {
       user_id: idJson,
       post_title: formValues.get("post_title"),
       post_img: formValues.get("post_img"),
+      post_alt: formValues.get("post_alt"),
     };
 
     db.query(
-      `INSERT INTO posts (user_id, timestamp, post_title, post_img)
-      VALUES ($1, current_timestamp, $2, $3)`,
-      [formData.user_id, formData.post_title, formData.post_img]
+      `INSERT INTO posts (user_id, timestamp, post_title, post_img, post_alt)
+      VALUES ($1, current_timestamp, $2, $3, $4)`,
+      [
+        formData.user_id,
+        formData.post_title,
+        formData.post_img,
+        formData.post_alt,
+      ]
     );
 
     revalidatePath("/posts");
@@ -50,11 +56,10 @@ export default async function CreatePost() {
           required
         />
         <label htmlFor="post_alt">Alt Text</label>
-        <input
-          type="text"
+        <textarea
           name="post_alt"
           id="post_alt"
-          placeholder="Enter appropriate alt text for your image"
+          placeholder="Enter appropriate alt text for your image. This will be displayed if the image is unavailable and for users using screen readers."
           required
         />
         <button type="submit">Create Post</button>
