@@ -7,7 +7,8 @@ export default function SignInPage() {
       <h1>Sign In</h1>
       <SignedOut>
         <p className="text-lg">
-          Welcome to SOCIAL MEDIA SITE! We&apos;re glad to have you here.
+          Welcome to TUSS, The Untitled Social Site! We&apos;re glad to have you
+          here.
         </p>
         <p className="text-lg">Sign up below to create an account.</p>
         <p className="text-base">

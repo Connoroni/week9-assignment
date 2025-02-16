@@ -6,7 +6,9 @@ export default function SignInPage() {
     <>
       <h1>Sign In</h1>
       <SignedOut>
-        <p className="text-lg">Welcome back to SOCIAL MEDIA SITE!</p>
+        <p className="text-lg">
+          Welcome back to TUSS, The Untitled Social Site!
+        </p>
         <p className="text-lg">Sign into your account below:</p>
         <p className="text-base">
           Or <SignUpButton /> if you don&apos;t have an account.

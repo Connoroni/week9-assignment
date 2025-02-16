@@ -1,6 +1,7 @@
 import { db } from "@/utils/dbConnection.js";
 import Image from "next/image";
 import Link from "next/link";
+import create_post from "@/../public/assets/create_post.png";
 
 export default async function PostFeed({ searchParams }) {
   const posts = (
@@ -18,6 +19,15 @@ export default async function PostFeed({ searchParams }) {
 
   return (
     <section>
+      <Link href={"/create-post"}>
+        <Image
+          className="bg-slate-300 rounded-md"
+          src={create_post}
+          alt="A black square with a black pen writing in it. This is the icon representing 'create post'."
+          width={50}
+          height={50}
+        />
+      </Link>
       <div className="sorts">
         <Link href={"/?sort=asc"}>Sort Posts ↑ (newest first)&nbsp;</Link>
         <Link href={"/?sort=desc"}>Sort Posts ↓ (oldest first)</Link>
