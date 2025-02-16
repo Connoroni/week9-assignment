@@ -29,8 +29,8 @@ export default async function PostFeed({ searchParams }) {
         />
       </Link>
       <div className="sorts">
-        <Link href={"/?sort=asc"}>Sort Posts ↑ (newest first)&nbsp;</Link>
-        <Link href={"/?sort=desc"}>Sort Posts ↓ (oldest first)</Link>
+        <Link href={"/posts?sort=desc"}>Sort Posts ↑ (newest first)&nbsp;</Link>
+        <Link href={"/posts?sort=asc"}>Sort Posts ↓ (oldest first)</Link>
       </div>
       {posts.map((post) => (
         <div key={post.id}>
