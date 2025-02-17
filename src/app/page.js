@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 import { db } from "@/utils/dbConnection";
+import SeparatorComponent from "@/components/SeparatorComponent";
 
 export const metadata = {
   title: "TUSS - Home",
@@ -39,6 +40,7 @@ export default async function Home() {
         isn&apos;t something the developer came up with to justify the simple
         design of TUSS.
       </p>
+      <SeparatorComponent orientation="horizontal" />
       <section className="flex justify-around">
         <div>
           {usernameQuery ? (
@@ -70,6 +72,7 @@ export default async function Home() {
             </p>
           </SignedOut>
         </div>
+        {/* I did originally want a vertical separator between these two divs but couldn't get it to display when the orientation was vertical for some reason */}
         <div>
           <Link href="/posts">
             <h2>Post Feed</h2>
