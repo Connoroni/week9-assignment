@@ -58,20 +58,21 @@ export default async function CreateProfile() {
     <>
       <h1>Create your profile</h1>
       <p>Enter your information in the form below to create your profile:</p>
-      <p>Fields marked with a (*) are required.</p>
+      <p>Fields marked with a (*) are required and can&apos;t be left empty.</p>
       <form action={handleSubmit} className="flex flex-col">
-        <label htmlFor="username">Username*</label>
+        <label htmlFor="username">Username *</label>
         <input type="text" name="username" id="username" required />
         <label htmlFor="first_name">First name</label>
         <input type="text" name="first_name" id="first_name" />
         <label htmlFor="last_name">Surname</label>
         <input type="text" name="last_name" id="last_name" />
-        <label htmlFor="profile_pic"> Profile picture URL</label>
+        <label htmlFor="profile_pic"> Profile picture URL *</label>
         <input
           type="url"
           name="profile_pic"
           id="profile_pic"
           placeholder="Enter the URL of an image to use for your profile picture"
+          required
         />
         <label htmlFor="location">Location</label>
         <input type="text" name="location" id="location" />
