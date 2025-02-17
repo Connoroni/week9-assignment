@@ -127,10 +127,13 @@ export default async function UserProfile({ params }) {
           <SeparatorComponent orientation="horizontal" />
           <section className="edit-profile">
             <h2>Edit profile</h2>
-            <p>Fields marked with a (*) are required.</p>
+            <p>
+              Fields marked with a (*) are required and can&apos;t be left
+              empty.
+            </p>
             <div className="flex flex-col flex-wrap">
               <form action={handleSubmit}>
-                <label htmlFor="username">Username*</label>
+                <label htmlFor="username">Username *</label>
                 <input
                   type="text"
                   name="username"
@@ -152,13 +155,14 @@ export default async function UserProfile({ params }) {
                   id="last_name"
                   defaultValue={user.last_name}
                 />
-                <label htmlFor="profile_pic"> Profile picture URL</label>
+                <label htmlFor="profile_pic"> Profile picture URL *</label>
                 <input
                   type="url"
                   name="profile_pic"
                   id="profile_pic"
                   placeholder="Enter the URL of an image to use for your profile picture"
                   defaultValue={user.profile_pic}
+                  required
                 />
                 <label htmlFor="location">Location</label>
                 <input
