@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
 
+export const metadata = {
+  title: "TUSS - Page Not Found",
+  description:
+    "The page you were looking for cannot be found. You have our apologies.",
+};
+
 export default function NotFound() {
   return (
     <>

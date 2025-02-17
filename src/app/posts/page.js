@@ -3,6 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import create_post from "@/../public/assets/create_post.png";
 
+export const metadata = {
+  title: "TUSS - Post Feed",
+  description: "The page showing all posts on TUSS, The Untitled Social Site",
+};
+
 export default async function PostFeed({ searchParams }) {
   const posts = (
     await db.query(
