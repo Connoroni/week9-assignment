@@ -3,6 +3,7 @@ import Image from "next/image";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { notFound } from "next/navigation";
+import SeparatorComponent from "@/components/SeparatorComponent";
 
 export async function generateMetadata({ params }) {
   const pageParams = await params;
@@ -83,6 +84,7 @@ export default async function UserProfile({ params }) {
               </div>
             </div>
           </section>
+          <SeparatorComponent orientation="horizontal" />
           <section className="edit-profile">
             <h2>Edit profile</h2>
             <p>Fields marked with a (*) are required.</p>
