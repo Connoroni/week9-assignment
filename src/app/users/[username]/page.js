@@ -32,6 +32,16 @@ export default async function UserProfile({ params }) {
     notFound();
   }
 
+  const posts = (
+    await db.query(
+      `SELECT users.username, users.profile_pic, posts.id, posts.user_id, posts.timestamp, posts.post_title, posts.post_img, posts.post_alt
+      FROM users
+      JOIN posts ON posts.user_id = users.clerk_id
+      WHERE users.username = $1`,
+      [usernameParams.username]
+    )
+  ).rows;
+
   async function handleSubmit(formValues) {
     "use server";
 
@@ -83,6 +93,36 @@ export default async function UserProfile({ params }) {
                 <p>{user.bio}</p>
               </div>
             </div>
+          </section>
+          <SeparatorComponent orientation="horizontal" />
+          <section>
+            {posts.map((post) => (
+              <div key={post.id}>
+                <div className="post-header">
+                  <Image
+                    src={post.profile_pic}
+                    alt="The user's profile picture"
+                    width={50}
+                    height={50}
+                  />
+                  <p className="post-username">{post.username}</p>
+                  <p className="post-timestamp">
+                    {post.timestamp.toDateString()},&nbsp;
+                    {post.timestamp.toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
+                </div>
+                <h2 className="post-title">{post.post_title}</h2>
+                <Image
+                  src={post.post_img}
+                  alt={post.post_alt}
+                  width={200}
+                  height={200}
+                />
+              </div>
+            ))}
           </section>
           <SeparatorComponent orientation="horizontal" />
           <section className="edit-profile">
