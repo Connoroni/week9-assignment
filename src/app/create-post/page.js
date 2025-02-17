@@ -3,6 +3,11 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
+export const metadata = {
+  title: "TUSS - Create Posts",
+  description: "Page for users to create their own posts",
+};
+
 export default async function CreatePost() {
   const clerkUser = await currentUser();
   const idJson = JSON.stringify(clerkUser.id);

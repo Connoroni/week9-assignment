@@ -4,6 +4,19 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }) {
+  const pageParams = await params;
+  const userMetadata = (
+    await db.query(`SELECT * FROM users WHERE username = $1`, [
+      pageParams.username,
+    ])
+  ).rows;
+  return {
+    title: `TUSS - Profile of ${userMetadata[0].username}`,
+    description: `The profile belonging to ${userMetadata[0].username}.`,
+  };
+}
+
 export default async function UserProfile({ params }) {
   const usernameParams = await params;
   //   console.log("PARAMS OBJECT:", usernameParams);

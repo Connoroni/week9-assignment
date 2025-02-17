@@ -1,6 +1,11 @@
 import { SignIn, SignUpButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 
+export const metadata = {
+  title: "TUSS - Sign In",
+  description: "Existing users sign in to TUSS, The Untitled Social Site",
+};
+
 export default function SignInPage() {
   return (
     <>

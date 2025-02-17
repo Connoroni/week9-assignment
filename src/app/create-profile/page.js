@@ -2,6 +2,12 @@ import { db } from "@/utils/dbConnection.js";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
+export const metadata = {
+  title: "TUSS - Create Profile",
+  description:
+    "Page for users to create their profiles after creating an account",
+};
+
 export default async function CreateProfile() {
   const clerkUser = await currentUser();
   // console.log(clerkUser);
