@@ -32,7 +32,7 @@ export default async function CreateProfile() {
       first_name: formValues.get("first_name"),
       last_name: formValues.get("last_name"),
       email: emailJson,
-      profile_pic: pfp,
+      profile_pic: formValues.get("profile_pic"),
       location: formValues.get("location"),
       bio: formValues.get("bio"),
     };
